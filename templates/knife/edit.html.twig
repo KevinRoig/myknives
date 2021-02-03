@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Knife{% endblock %}
+
+{% block body %}
+    <h1>Edit Knife</h1>
+
+    {{ include('knife/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('knife_index') }}">back to list</a>
+
+    {{ include('knife/_delete_form.html.twig') }}
+{% endblock %}

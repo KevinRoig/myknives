@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Knife index{% endblock %}
+
+{% block body %}
+    <h1>Knife index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Maker</th>
+                <th>Blade_length</th>
+                <th>Blade_thickness</th>
+                <th>Blade_material</th>
+                <th>Total_length</th>
+                <th>Handle_length</th>
+                <th>Handle_material</th>
+                <th>State</th>
+                <th>Propriétaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for knife in knives %}
+            <tr>
+                <td>{{ knife.id }}</td>
+                <td>{{ knife.name }}</td>
+                <td>{{ knife.maker }}</td>
+                <td>{{ knife.bladeLength }}</td>
+                <td>{{ knife.bladeThickness }}</td>
+                <td>{{ knife.bladeMaterial }}</td>
+                <td>{{ knife.totalLength }}</td>
+                <td>{{ knife.handleLength }}</td>
+                <td>{{ knife.handleMaterial }}</td>
+                <td>{{ knife.state }}</td>
+                <td>{{ knife.user.firstname }}</td>
+                <td>
+                    <a href="{{ path('knife_show', {'id': knife.id}) }}">show</a>
+                    <a href="{{ path('knife_edit', {'id': knife.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('knife_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome to Myknives!{% endblock %}
+
+{% block body %}
+    {% for knife in knives %}
+        {% for image in knife.images %}
+            <img src="{{image.name}}">
+            <p>{{ knife.name }} de {{ knife.maker }}</p>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

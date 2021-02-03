@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Knife{% endblock %}
+
+{% block body %}
+    <h1>Create new Knife</h1>
+
+    {{ include('knife/_form.html.twig') }}
+
+    <a href="{{ path('knife_index') }}">back to list</a>
+{% endblock %}
