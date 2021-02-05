@@ -1,7 +1,13 @@
 :root {
     --main-color: #a30010;
-    --dot-color: blue;
-    --item-hover-color: green;
+    --dot-color: rgb(62, 255, 104);
+    --item-hover-color: rgb(214, 114, 0);
+    --button-color: #a3001063;
+}
+
+.logo {
+    height: 4rem;
+    margin-top: -7px;
 }
 
 .menu {
@@ -14,13 +20,11 @@ margin: 0 auto;
 padding: 0;
 }
 .menu > ol {
-max-width: 1000px;
-padding: 0 2rem;
 display: flex;
 }
 .menu > ol > .menu-item {
 flex: 1;
-padding: 0.75rem 0;
+padding: 0.75rem 0.5rem;
 }
 .menu > ol > .menu-item:after {
 content: "";
@@ -75,6 +79,105 @@ background: var(--item-hover-color);
 .sub-menu .menu-item a {
 padding: 0 0.75rem;
 }
+
+.select {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1%
+}
+
+.images {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.images img {
+    max-height: 50vh;
+    max-width: 90vw;
+    margin-top : 20px;
+}
+
+.images p {
+    margin-top : 0.5rem;
+}
+
+.full_name {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.knife_name {
+    display: inline;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.knife_maker {
+    display: inline;
+    font-family: Courier, monospace;
+}
+
+.table_all {
+    margin:  2% auto;
+    border: 2px solid var(--main-color);
+    text-align: center;
+    max-width: 90%;
+    border-collapse: collapse;
+}
+
+.table_all thead {
+    background-color: #a30010;
+    color: white;
+}
+
+.table_all th {
+    padding: 2rem;
+}
+
+.table_all tr {
+}
+
+.table_all td {
+    padding: 1rem;
+    border-bottom: 2px solid var(--item-hover-color);
+
+}
+
+.table_all td a {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.table_details {
+    margin-left: 2%;
+    border: 2px solid var(--main-color);
+    padding: 5px;
+}
+
+.table_details th {
+    text-align: left;
+    padding-right: 1rem;
+}
+
+.btn {
+    background-color: var(--button-color);
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem;
+}
+
+.create {
+    margin: 20px;
+}
+
 @media screen and (max-width: 600px) {
 .sub-menu .menu-item {
     background: var(--main-color);

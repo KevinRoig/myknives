@@ -4,37 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    {% block stylesheets %}
-        <link href="assets/style/base.css" rel="stylesheet">
-    {% endblock %}
-
-    {% block javascripts %}{% endblock %}
+    <link href="{{asset('assets/style/base.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{asset('assets/images/favicon.ico') }}">
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
 </head>
 
 <body>
     <nav class="menu">
         <ol>
-            <li class="menu-item"><a href="/">Home</a></li>
-            <li class="menu-item"><a href="#0">About</a></li>
+            <li class="menu-item logo"><a href="/"><img class="logo" src="{{asset('assets/images/myknives-logo.png') }}" alt=""></a></li>
+            <li class="menu-item"><a href="{{path('knife_new') }}">Ajouter un couteau</a></li>
             <li class="menu-item">
-                <a href="#0">Widgets</a>
+                <a href="#0">Gérer ma collection</a>
                 <ol class="sub-menu">
-                    <li class="menu-item"><a href="#0">Big Widgets</a></li>
-                    <li class="menu-item"><a href="#0">Bigger Widgets</a></li>
-                    <li class="menu-item"><a href="#0">Huge Widgets</a></li>
+                    <li class="menu-item"><a href="{{path('knife_index') }}">Voir mes couteaux</a></li>
+                    <li class="menu-item"><a href="{{path('image_new') }}">Ajouter une image</a></li>
                 </ol>
             </li>
             <li class="menu-item">
-                <a href="#0">Kabobs</a>
+                <a href="#0">Pour plus tard</a>
                 <ol class="sub-menu">
-                    <li class="menu-item"><a href="#0">Shishkabobs</a></li>
-                    <li class="menu-item"><a href="#0">BBQ kabobs</a></li>
-                    <li class="menu-item"><a href="#0">Summer kabobs</a></li>
+                    <li class="menu-item"><a href="#0">A voir</a></li>
+                    <li class="menu-item"><a href="#0">Peut-être</a></li>
+                    <li class="menu-item"><a href="#0">Un jour</a></li>
                 </ol>
             </li>
             <li class="menu-item"><a href="#0">Contact</a></li>
         </ol>
-    </nav> {% block body %}{% endblock %}
+    </nav> 
+    <div class="content">
+        {% block body %}{% endblock %}
+    </div>
 </body>
 </html>

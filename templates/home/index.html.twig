@@ -3,10 +3,24 @@
 {% block title %}Welcome to Myknives!{% endblock %}
 
 {% block body %}
+<div class="select">
+        <form action="/knife/" method="POST">
+    <label for="makers">Couteaux</label>
+        <select name="id" id="makers">
+            <option value="">--Choisissez un modèle--</option>
+                {% for knife in knives %}
+                    <option value="{{ knife.id }}">{{knife.name }}</option>
+                {% endfor %}
+        </select>
+        <input type="submit" value="Aller">
+    </form>
+</div>
+<div class="images">
     {% for knife in knives %}
         {% for image in knife.images %}
-            <img src="{{image.name}}">
+            <img src="{{ vich_uploader_asset(image, 'posterFile') }}">
             <p>{{ knife.name }} de {{ knife.maker }}</p>
         {% endfor %}
     {% endfor %}
+</div>
 {% endblock %}

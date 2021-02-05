@@ -2,15 +2,17 @@
 
 namespace App\Form;
 
+use App\Entity\Image;
 use App\Entity\Knife;
 use App\Entity\User;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use PhpParser\Parser\Multiple;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Security\Core\Security;
 
 class KnifeType extends AbstractType
@@ -28,18 +30,36 @@ class KnifeType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('maker', TextType::class)
-            ->add('blade_length', NumberType::class)
-            ->add('blade_thickness', NumberType::class)
-            ->add('blade_material', TextType::class)
-            ->add('handle_length', NumberType::class)
-            ->add('handle_material', TextType::class)
-            ->add('total_length', NumberType::class)
+            ->add('blade_length', NumberType::class, [
+                'required' =>false
+            ])
+            ->add('blade_thickness', NumberType::class, [
+                'required' =>false
+            ])
+            ->add('blade_material', TextType::class, [
+                'required' => false
+            ])
+            ->add('handle_length', NumberType::class, [
+                'required' => false
+            ])
+            ->add('handle_material', TextType::class, [
+                'required' => false
+            ])
+            ->add('total_length', NumberType::class, [
+                'required' => false
+            ])
             ->add('state', ChoiceType::class, [
                 'choices' => [
                 'En ma possession' => 'En ma possession',
                 'Revendu' => 'Revendu',
                 'Perdu' => 'Perdu'
                 ]])
+            ->add('user', EntityType::class, [
+                'class' => User::class, 
+                'choice_label' => 'lastname',
+                'multiple' => false,
+                'expanded' => false,
+            ])
             ;
     }
 

@@ -76,7 +76,7 @@ class Knife
     private $location;
 
     /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="knife")
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="knife", orphanRemoval=true)
      */
     private $images;
 
@@ -236,7 +236,6 @@ class Knife
             $this->images[] = $image;
             $image->setKnife($this);
         }
-
         return $this;
     }
 
@@ -248,7 +247,6 @@ class Knife
                 $image->setKnife(null);
             }
         }
-
         return $this;
     }
 }

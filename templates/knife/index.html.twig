@@ -3,42 +3,30 @@
 {% block title %}Knife index{% endblock %}
 
 {% block body %}
-    <h1>Knife index</h1>
-
-    <table class="table">
+    <h1>Index des couteaux</h1>
+<div>
+    <table class="table_all">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Maker</th>
-                <th>Blade_length</th>
-                <th>Blade_thickness</th>
-                <th>Blade_material</th>
-                <th>Total_length</th>
-                <th>Handle_length</th>
-                <th>Handle_material</th>
-                <th>State</th>
+                <th>Nom</th>
+                <th>Fabricant</th>
+                <th>Etat</th>
                 <th>Propriétaire</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for knife in knives %}
             <tr>
-                <td>{{ knife.id }}</td>
                 <td>{{ knife.name }}</td>
-                <td>{{ knife.maker }}</td>
-                <td>{{ knife.bladeLength }}</td>
-                <td>{{ knife.bladeThickness }}</td>
-                <td>{{ knife.bladeMaterial }}</td>
-                <td>{{ knife.totalLength }}</td>
-                <td>{{ knife.handleLength }}</td>
-                <td>{{ knife.handleMaterial }}</td>
+                <td>
+                   {{ knife.maker }}
+                </td>
                 <td>{{ knife.state }}</td>
                 <td>{{ knife.user.firstname }}</td>
                 <td>
-                    <a href="{{ path('knife_show', {'id': knife.id}) }}">show</a>
-                    <a href="{{ path('knife_edit', {'id': knife.id}) }}">edit</a>
+                    <a href="{{ path('knife_show', {'id': knife.id}) }}">Voir détails</a>
+                    <a href="{{ path('knife_edit', {'id': knife.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -48,5 +36,8 @@
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('knife_new') }}">Create new</a>
+</div>
+<div class="create">
+    <a class="btn" href="{{ path('knife_new') }}">Create new</a>
+</div>
 {% endblock %}
