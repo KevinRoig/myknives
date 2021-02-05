@@ -20,3 +20,8 @@
 1. Got to www.youraddress.com/user/new
 2. Create a user with a name and a password (do not loose it!) 
 3. You are redirected to the home page.
+
+### See what was planned
+1. [!Database](./resources/DB_myknives.jpg) 
+2. [!User stories](./resources/US_myknives.jpg)
+3. [!Wireframes](./resources/WIREFRAMES_myknives.jpg)
