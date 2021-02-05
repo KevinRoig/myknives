@@ -108,6 +108,10 @@ padding: 0 0.75rem;
     margin-top : 0.5rem;
 }
 
+.image_edit {
+    width: 30%;
+}
+
 .full_name {
     text-align: center;
     margin: 20px 0;

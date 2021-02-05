@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Knife{% endblock %}
+{% block title %}Modifier un couteau{% endblock %}
 
 {% block body %}
-    <h1>Edit Knife</h1>
+    <h1>Modifier un couteau</h1>
 
     {{ include('knife/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('knife_index') }}">back to list</a>
-
+    <div>
+        <p>sur une image pour la modifier :</p> 
+        {% for image in knife.images %}
+        <a href="{{ path('image_edit', {'id' : image.id}) }}"> <img class="image_edit" src="{{ vich_uploader_asset(image, 'posterFile') }}" alt=""><br></a>
+        {% endfor %}
+    </div>
     {{ include('knife/_delete_form.html.twig') }}
+    <div>
+        <a class="btn" href="{{ path('knife_index') }}">back to list</a>
+    </div>
 {% endblock %}
