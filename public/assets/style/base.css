@@ -178,6 +178,10 @@ padding: 0 0.75rem;
     margin: 20px;
 }
 
+label {
+    margin-right: 5px;
+}
+
 @media screen and (max-width: 600px) {
 .sub-menu .menu-item {
     background: var(--main-color);

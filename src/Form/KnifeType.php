@@ -28,37 +28,49 @@ class KnifeType extends AbstractType
     {
 
         $builder
-            ->add('name', TextType::class)
-            ->add('maker', TextType::class)
+            ->add('name', TextType::class, [
+                'label' => 'Nom'
+            ])
+            ->add('maker', TextType::class, [
+                'label' => 'Fabricant'
+            ])
             ->add('blade_length', NumberType::class, [
-                'required' =>false
+                'required' => false,
+                'label' => 'Longueur de la lame'
             ])
             ->add('blade_thickness', NumberType::class, [
-                'required' =>false
+                'required' => false,
+                'label' => 'Epaisseur de la lame'
             ])
             ->add('blade_material', TextType::class, [
-                'required' => false
+                'required' => false,
+                'label' => 'Matériau de la lame'
             ])
             ->add('handle_length', NumberType::class, [
-                'required' => false
+                'required' => false,
+                'label' => 'Longueur du manche'
             ])
             ->add('handle_material', TextType::class, [
-                'required' => false
+                'required' => false,
+                'label' => 'Matéreiau du manche'
             ])
             ->add('total_length', NumberType::class, [
-                'required' => false
+                'required' => false,
+                'label' => 'Longueur totale'
             ])
             ->add('state', ChoiceType::class, [
                 'choices' => [
                 'En ma possession' => 'En ma possession',
                 'Revendu' => 'Revendu',
-                'Perdu' => 'Perdu'
+                'Perdu' => 'Perdu',
+                'label' => 'Etat'
                 ]])
             ->add('user', EntityType::class, [
                 'class' => User::class, 
                 'choice_label' => 'lastname',
                 'multiple' => false,
                 'expanded' => false,
+                'label' => 'Utilisateur'
             ])
             ;
     }
